@@ -77,7 +77,7 @@
             this.hora.Location = new System.Drawing.Point(77, 218);
             this.hora.Name = "hora";
             this.hora.Size = new System.Drawing.Size(53, 40);
-            this.hora.TabIndex = 1;
+            this.hora.TabIndex = 0;
             this.hora.Text = "00";
             // 
             // minuto
@@ -88,7 +88,7 @@
             this.minuto.Location = new System.Drawing.Point(171, 218);
             this.minuto.Name = "minuto";
             this.minuto.Size = new System.Drawing.Size(53, 40);
-            this.minuto.TabIndex = 2;
+            this.minuto.TabIndex = 0;
             this.minuto.Text = "00";
             // 
             // segundo
@@ -99,7 +99,7 @@
             this.segundo.Location = new System.Drawing.Point(265, 218);
             this.segundo.Name = "segundo";
             this.segundo.Size = new System.Drawing.Size(53, 40);
-            this.segundo.TabIndex = 3;
+            this.segundo.TabIndex = 0;
             this.segundo.Text = "00";
             // 
             // label2
@@ -110,7 +110,7 @@
             this.label2.Location = new System.Drawing.Point(136, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 40);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 0;
             this.label2.Text = ":";
             // 
             // label3
@@ -121,7 +121,7 @@
             this.label3.Location = new System.Drawing.Point(230, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 40);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 0;
             this.label3.Text = ":";
             // 
             // timerSegundos
@@ -136,7 +136,7 @@
             this.iniciar.Location = new System.Drawing.Point(12, 340);
             this.iniciar.Name = "iniciar";
             this.iniciar.Size = new System.Drawing.Size(118, 57);
-            this.iniciar.TabIndex = 6;
+            this.iniciar.TabIndex = 11;
             this.iniciar.Text = "Iniciar";
             this.iniciar.UseVisualStyleBackColor = true;
             this.iniciar.Click += new System.EventHandler(this.iniciar_Click);
@@ -148,7 +148,7 @@
             this.zerar.Location = new System.Drawing.Point(143, 340);
             this.zerar.Name = "zerar";
             this.zerar.Size = new System.Drawing.Size(118, 57);
-            this.zerar.TabIndex = 7;
+            this.zerar.TabIndex = 12;
             this.zerar.Text = "Zerar";
             this.zerar.UseVisualStyleBackColor = true;
             this.zerar.Click += new System.EventHandler(this.zerar_Click);
@@ -160,7 +160,7 @@
             this.pausar.Location = new System.Drawing.Point(272, 340);
             this.pausar.Name = "pausar";
             this.pausar.Size = new System.Drawing.Size(118, 57);
-            this.pausar.TabIndex = 8;
+            this.pausar.TabIndex = 13;
             this.pausar.Text = "Pausar";
             this.pausar.UseVisualStyleBackColor = true;
             this.pausar.Click += new System.EventHandler(this.pausar_Click);
@@ -172,7 +172,7 @@
             this.label4.Location = new System.Drawing.Point(56, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 24);
-            this.label4.TabIndex = 9;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Horas";
             // 
             // label5
@@ -182,7 +182,7 @@
             this.label5.Location = new System.Drawing.Point(156, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 24);
-            this.label5.TabIndex = 10;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Minutos";
             // 
             // label6
@@ -192,7 +192,7 @@
             this.label6.Location = new System.Drawing.Point(268, 109);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 24);
-            this.label6.TabIndex = 11;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Segundos";
             // 
             // comboBoxHoras
@@ -201,7 +201,7 @@
             this.comboBoxHoras.Location = new System.Drawing.Point(60, 136);
             this.comboBoxHoras.Name = "comboBoxHoras";
             this.comboBoxHoras.Size = new System.Drawing.Size(59, 21);
-            this.comboBoxHoras.TabIndex = 12;
+            this.comboBoxHoras.TabIndex = 2;
             // 
             // comboBoxMinutos
             // 
@@ -209,7 +209,7 @@
             this.comboBoxMinutos.Location = new System.Drawing.Point(169, 136);
             this.comboBoxMinutos.Name = "comboBoxMinutos";
             this.comboBoxMinutos.Size = new System.Drawing.Size(59, 21);
-            this.comboBoxMinutos.TabIndex = 13;
+            this.comboBoxMinutos.TabIndex = 3;
             // 
             // comboBoxSegundos
             // 
@@ -217,7 +217,7 @@
             this.comboBoxSegundos.Location = new System.Drawing.Point(283, 136);
             this.comboBoxSegundos.Name = "comboBoxSegundos";
             this.comboBoxSegundos.Size = new System.Drawing.Size(59, 21);
-            this.comboBoxSegundos.TabIndex = 14;
+            this.comboBoxSegundos.TabIndex = 4;
             // 
             // textBoxHoras
             // 
@@ -225,7 +225,7 @@
             this.textBoxHoras.MaxLength = 2;
             this.textBoxHoras.Name = "textBoxHoras";
             this.textBoxHoras.Size = new System.Drawing.Size(60, 20);
-            this.textBoxHoras.TabIndex = 15;
+            this.textBoxHoras.TabIndex = 6;
             this.textBoxHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // textBoxMinutos
@@ -234,7 +234,7 @@
             this.textBoxMinutos.MaxLength = 2;
             this.textBoxMinutos.Name = "textBoxMinutos";
             this.textBoxMinutos.Size = new System.Drawing.Size(60, 20);
-            this.textBoxMinutos.TabIndex = 16;
+            this.textBoxMinutos.TabIndex = 7;
             this.textBoxMinutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // textBoxSegundos
@@ -243,7 +243,7 @@
             this.textBoxSegundos.MaxLength = 2;
             this.textBoxSegundos.Name = "textBoxSegundos";
             this.textBoxSegundos.Size = new System.Drawing.Size(60, 20);
-            this.textBoxSegundos.TabIndex = 17;
+            this.textBoxSegundos.TabIndex = 8;
             this.textBoxSegundos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // opcoes
@@ -256,8 +256,9 @@
             this.opcoes.Location = new System.Drawing.Point(13, 273);
             this.opcoes.Name = "opcoes";
             this.opcoes.Size = new System.Drawing.Size(141, 49);
-            this.opcoes.TabIndex = 19;
+            this.opcoes.TabIndex = 9;
             this.opcoes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.opcoes_MouseClick);
+            this.opcoes.SelectedIndexChanged += new System.EventHandler(this.opcoes_SelectedIndexChanged);
             // 
             // radioButton1ComboBox
             // 
@@ -266,7 +267,7 @@
             this.radioButton1ComboBox.Location = new System.Drawing.Point(40, 136);
             this.radioButton1ComboBox.Name = "radioButton1ComboBox";
             this.radioButton1ComboBox.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1ComboBox.TabIndex = 20;
+            this.radioButton1ComboBox.TabIndex = 1;
             this.radioButton1ComboBox.TabStop = true;
             this.radioButton1ComboBox.UseVisualStyleBackColor = true;
             this.radioButton1ComboBox.Click += new System.EventHandler(this.radioButton1ComboBox_Click);
@@ -277,7 +278,8 @@
             this.radioButton1TextBox.Location = new System.Drawing.Point(40, 166);
             this.radioButton1TextBox.Name = "radioButton1TextBox";
             this.radioButton1TextBox.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1TextBox.TabIndex = 21;
+            this.radioButton1TextBox.TabIndex = 5;
+            this.radioButton1TextBox.TabStop = true;
             this.radioButton1TextBox.UseVisualStyleBackColor = true;
             this.radioButton1TextBox.Click += new System.EventHandler(this.radioButton1TextBox_Click);
             // 
@@ -288,7 +290,7 @@
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
             this.player.Size = new System.Drawing.Size(217, 44);
-            this.player.TabIndex = 18;
+            this.player.TabIndex = 10;
             // 
             // Form1
             // 

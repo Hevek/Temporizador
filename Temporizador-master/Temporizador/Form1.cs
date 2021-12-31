@@ -51,7 +51,7 @@ namespace Temporizador
             }
         }
 
-        void checkLabelsAndStop()
+        void checkLabels()
         {
             //Contagem de Segundos
             if (secs < 0) //Esse if faz a checagem se o número mostrado precisa reiniciar ou não
@@ -91,19 +91,6 @@ namespace Temporizador
             else
             {
                 hora.Text = "0" + hours.ToString();
-            }
-
-            if (total <= 0)
-            {
-                timerSegundos.Stop();
-                player.Ctlcontrols.stop();
-                player.Ctlcontrols.play();
-                secs = 0;
-                textBoxSegundos.Text = "0";
-                mins = 0;
-                textBoxMinutos.Text = "0";
-                hours = 0;
-                textBoxHoras.Text = "0";
             }
         }
 
@@ -155,6 +142,11 @@ namespace Temporizador
                 player.Ctlcontrols.play();
             }
         }
+        private void opcoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            player.URL = opcoes.SelectedItem.ToString();
+            player.Ctlcontrols.play();
+        }
 
         //Botões de opção
         private void iniciar_Click(object sender, EventArgs e)
@@ -194,10 +186,7 @@ namespace Temporizador
         {
             //Zera e para tudo
             hours = 0; mins = 0; secs = 0; total = 0;
-
-            hora.Text = "00";
-            minuto.Text = "00";
-            segundo.Text = "00";
+            hora.Text = "00"; minuto.Text = "00"; segundo.Text = "00";
 
             if (comboBoxHoras.Enabled == true)
             {
@@ -217,42 +206,8 @@ namespace Temporizador
             iniciar.Font = new Font("Times New Roman", 22, FontStyle.Bold);
         }
 
-        private void radioButton1ComboBox_Click(object sender, EventArgs e)
-        {
-            textBoxHoras.Enabled = false;
-            textBoxMinutos.Enabled = false;
-            textBoxSegundos.Enabled = false;
-
-            comboBoxHoras.Enabled = true;
-            comboBoxMinutos.Enabled = true;
-            comboBoxSegundos.Enabled = true;
-        }
-
-        private void radioButton1TextBox_Click(object sender, EventArgs e)
-        {
-            comboBoxHoras.Enabled = false;
-            comboBoxMinutos.Enabled = false;
-            comboBoxSegundos.Enabled = false;
-
-            textBoxHoras.Enabled = true;
-            textBoxMinutos.Enabled = true;
-            textBoxSegundos.Enabled = true;
-        }
-
-        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //Confere se a tecla pressionada é um número ou uma tecla de controle
-            if (!(char.IsDigit(e.KeyChar)) && !(char.IsControl(e.KeyChar)))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void pausar_Click(object sender, EventArgs e)
         {
-            /* Código que impede o timer de reiniciar caso o botão iniciar seja pressionado
-             * depois do botão de pausar */
-
             int horasPaused;
             int minutosPaused;
             int segundosPaused;
@@ -289,32 +244,78 @@ namespace Temporizador
 
         private void timerSegundos_Tick(object sender, EventArgs e)
         {
-            checkLabelsAndStop();
+            checkLabels();
+            if (total <= 0)
+            {
+                secs = 0;
+                mins = 0;
+                hours = 0;
+                timerSegundos.Stop();
+                player.Ctlcontrols.stop();
+                player.Ctlcontrols.play();
+            }
             secs--;
             total--;
+            //Aparentente tem um problema de 'refresh' do WMP, que o impossibilita de reproduzir automaticamente
+            //dps de um tempo. Resolvido por colocar um comando para dar esse 'refresh' no player.
+            if (total % 1800 == 0)
+            {
+                player.URL = opcoes.SelectedItem.ToString();
+                player.Ctlcontrols.stop();
+            }
         }
 
+        private void radioButton1ComboBox_Click(object sender, EventArgs e)
+        {
+            textBoxHoras.Enabled = false;
+            textBoxMinutos.Enabled = false;
+            textBoxSegundos.Enabled = false;
+
+            comboBoxHoras.Enabled = true;
+            comboBoxMinutos.Enabled = true;
+            comboBoxSegundos.Enabled = true;
+
+            radioButton1TextBox.TabStop = true;
+        }
+
+        private void radioButton1TextBox_Click(object sender, EventArgs e)
+        {
+            comboBoxHoras.Enabled = false;
+            comboBoxMinutos.Enabled = false;
+            comboBoxSegundos.Enabled = false;
+
+            textBoxHoras.Enabled = true;
+            textBoxMinutos.Enabled = true;
+            textBoxSegundos.Enabled = true;
+
+            radioButton1ComboBox.TabStop = true;
+        }
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Confere se a tecla pressionada é um número ou uma tecla de controle
+            if (!(char.IsDigit(e.KeyChar)) && !(char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+        }
         /*------------------------------------- Fim -----------------------------------------------------*/
 
         /*                              Anotações sobre o desenvolvimento
+         * Data de Início: 28/09/2021
          * Objetivo é:
          *  Criar um temporizador de horas, minutos e segundos que toque uma música quando
          *  o valor atinge zero.
          *  Oferecer ao usuário duas opções de inserção: caixa de texto ou lista(comboBox).
-         *  (po fessor, tava tentando diminuir os problemas e vc me oferece mais)
          *  
-         *  Todos os objetos setados. Próximo passo é configurar.
          *  A ideia é fazer as labels obterem o valor inserido pelo usuário
          *  e mudarem conforme o timer correspondente. (mudei para somente um timer pois usando 3
          *  para um cronômetro funciona, mas não um temporizador - ou relógio de contagem regressiva.)
          *  
          *  O problema que acredito que vai acontecer é o conflito de input do usuário.
-         *  Provavelmente vou precisar de uma forma de "escolher" o input prevalescente,
-         *  no caso, a combobox ou a textbox. (talvez bloquear o outro input caso o primeiro seja escolhido,
-         *  e liberá-lo somente com o botão reset?) - escolhi o input de texto para ser preferencial
+         *  (resolvido por colocar radioBtns pra escolher a opção de input)
          *  
          *  Anotações:
-         *  - Usar um if em cada timer para inserir o "0" caso número seja menor que 10
          *  - Tentar resolver o máximo possível até terça dia 5/9.
          *  - Tentar oferecer opções de música ao usuário,
          *  mas se conseguir fazer funcionar até terça tá ótimo.
@@ -326,7 +327,11 @@ namespace Temporizador
          *  Configurei o player, funciona perfeitamente, mas o usuário precisa selecionar uma opção,
          *  se não não toca nada quando o timer atinge zero. O ideal era esses dois itens estarem ok.
          *  - (5/9) Tudo OK!!
-         *  - (4/11) Ainda atualizando o código aushaushuahsuahs.
-         *  Últimas modificações feitas em: 23/12/2021  */
+         *  
+         *  Próximos Objetivos:
+         *      - Fazer o programa rodar em segundo plano;
+         *      - Colocar as funções CheckLabels(); e CheckEmptyString(); em uma classe, e utilizá-las como métodos(?).
+         *      
+         *  Últimas modificações feitas em: 30/12/2021  */
     }
 }
