@@ -303,7 +303,7 @@ namespace Temporizador
         /*------------------------------------- Fim -----------------------------------------------------*/
 
         /*                              Anotações sobre o desenvolvimento
-         * Data de Início: 28/09/2021
+         * Data de Início: 28/08/2021
          * Objetivo é:
          *  Criar um temporizador de horas, minutos e segundos que toque uma música quando
          *  o valor atinge zero.
