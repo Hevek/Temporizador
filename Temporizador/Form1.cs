@@ -184,7 +184,7 @@ namespace Temporizador
 
         private void zerar_Click(object sender, EventArgs e)
         {
-            //Zera e para tudo
+            //Zera tudo ativado e para o timer
             hours = 0; mins = 0; secs = 0; total = 0;
             hora.Text = "00"; minuto.Text = "00"; segundo.Text = "00";
 
