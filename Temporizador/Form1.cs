@@ -303,7 +303,7 @@ namespace Temporizador
         /*------------------------------------- Fim -----------------------------------------------------*/
 
         /*                              Anotações sobre o desenvolvimento
-         * Data de Início: 28/08/2021
+         * Data de Início: 28/09/2021
          * Objetivo é:
          *  Criar um temporizador de horas, minutos e segundos que toque uma música quando
          *  o valor atinge zero.
@@ -320,14 +320,14 @@ namespace Temporizador
          *  - Tentar resolver o máximo possível até terça dia 5/9.
          *  - Tentar oferecer opções de música ao usuário,
          *  mas se conseguir fazer funcionar até terça tá ótimo.
-         *  - (1/9) Ainda falta travar o input de caracteres não alfanuméricos,
+         *  - (1/10) Ainda falta travar o input de caracteres não alfanuméricos,
          *  a funcionalidade do botão de pause e a música.
          *  - OK... Vamos por partes: criei um player de música mas não entendi 100% como funciona.
          *  Coloquei um player nesse projeto mas não configurei nada ainda.
          *  - Mesmo dia, 22:23. Travei inputs, mas ainda permite que o mesmo fique vazio.
          *  Configurei o player, funciona perfeitamente, mas o usuário precisa selecionar uma opção,
          *  se não não toca nada quando o timer atinge zero. O ideal era esses dois itens estarem ok.
-         *  - (5/9) Tudo OK!!
+         *  - (5/10) Tudo OK!!
          *  
          *  Próximos Objetivos:
          *      - Fazer o programa rodar em segundo plano;
